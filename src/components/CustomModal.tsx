@@ -17,7 +17,7 @@ const CustomModal = ({ visible, onClose, children }) => {
             style={{ ...styles.openButton, backgroundColor: '#34A853' }}
             onPress={onClose}
           >
-            <Text style={styles.textStyle}>Close Modal</Text>
+            <Text style={styles.textStyle}>Close</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
+    paddingHorizontal: 30,
   },
 });
 

@@ -8,7 +8,7 @@ import {
   TextInput
 } from 'react-native'
 import React, { useState } from 'react'
-import { fetchBloggers } from '../services/bloggerService'
+import { fetchBloggers } from '../../services/bloggerService'
 import { useQuery } from '@tanstack/react-query'
 import { Card } from '@rneui/themed';
 import { Link } from 'expo-router';
@@ -20,8 +20,8 @@ import {
   type ColumnDef,
 } from '@tanstack/react-table';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
-import { useSearchStore } from '../store/searchStore';
-import CustomModal from '../components/CustomModal';
+import { useSearchStore } from '../../store/searchStore';
+import CustomModal from '../../components/CustomModal';
 
 interface Blogger {
   id: string;

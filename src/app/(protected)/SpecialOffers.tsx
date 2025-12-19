@@ -1,17 +1,26 @@
-import { View, Text,FlatList,TouchableOpacity,ActivityIndicator,StyleSheet } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, ActivityIndicator, StyleSheet, Image } from 'react-native'
 import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { Card } from '@rneui/themed';
 import { Link } from 'expo-router';
-import { fetchOffers } from '../services/SpecialOfferService';
-import CustomModal from '../components/CustomModal';
+import { fetchOffers } from '../../services/SpecialOfferService';
+import { fetchBloggers } from '../../services/bloggerService';
+import CustomModal from '../../components/CustomModal';
 
 interface SpecialOffer {
   id: number;
   name: string;
+  description: string;
   bloggerIds: number[];
   picture: string | number;
   fixedPrice: number;
+}
+interface Blogger {
+  id: string;
+  name: string;
+  description: string;
+  picture: string;
+  basePricePerVideo: number;
 }
 
 const CardItem = ({ item, onPress }: { item: SpecialOffer, onPress: () => void }) => { 
@@ -33,6 +42,11 @@ export default function SpecialOffers() {
     const { data: specialOffers, isLoading , isError, error } = useQuery<SpecialOffer[], Error>({
       queryKey: ['SpecialOffers'],
       queryFn: fetchOffers,
+    });
+
+    const { data: bloggers } = useQuery<Blogger[], Error>({
+      queryKey: ['bloggers'],
+      queryFn: fetchBloggers,
     });
 
     const [modalVisible, setModalVisible] = useState(false);
@@ -79,15 +93,37 @@ export default function SpecialOffers() {
           <CustomModal visible={modalVisible} onClose={closeModal}>
             <Card containerStyle={styles.cardContainer}>
               <Card.Title style={styles.cardTitle}>{selectedOffer.name}</Card.Title>
-              <Card.Image source={typeof selectedOffer.picture === 'string' ? { uri: selectedOffer.picture } : selectedOffer.picture} resizeMode='contain' style={styles.cardImage}/>
+              
               <Text style={styles.cardPriceText}>
                 Offer Price: ${selectedOffer.fixedPrice}
               </Text>
+               <Text style={{fontSize: 15,
+                              marginTop: 40,
+                    fontWeight: '400', 
+                    lineHeight: 22, 
+                    color: '#333333',
+                    
+                    fontStyle: 'italic',
+                    marginBottom: 20
+                    }}>
+                                {selectedOffer.description}
+                              </Text>
               <Card.Divider style={styles.cardDivider}/>
+              <View style={styles.bloggerListContainer}>
+               
+                <Text style={styles.bloggerListTitle}>Included Bloggers:</Text>
+                <View style={styles.bloggerAvatars}>
+                  {selectedOffer.bloggerIds.map((bloggerId) => {
+                    const blogger = (bloggers || []).find((b) => b.id.toString() === bloggerId.toString());
+                    if (!blogger) return null;
+                    return (
+                      <Image key={bloggerId} source={{ uri: blogger.picture }} style={styles.bloggerAvatar} />
+                    );
+                  })}
+                </View>
+              </View>
               <Link href={`/Offer/${selectedOffer.id}`} asChild>
-                <TouchableOpacity>
-                  <Text>View Offer</Text>
-                </TouchableOpacity>
+                
               </Link>
             </Card>
           </CustomModal>
@@ -149,5 +185,26 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     margin: 10,
     backgroundColor: '#FFFFFF',
-  }
+  },
+  bloggerListContainer: {
+    width: '100%',
+    marginVertical: 10,
+  },
+  bloggerListTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#1A1A1A',
+    marginBottom: 8,
+  },
+  bloggerAvatars: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  bloggerAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 8,
+    marginBottom: 8,
+  },
 });
