@@ -7,7 +7,7 @@ is a high-performance mobile marketplace built with React Native (Expo). It serv
 <br>
 <hr>
 <div align="center">
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/183852987/528882317-029b0549-a0c7-43f2-9821-6e96cf81cdd9.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251220%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251220T150323Z&X-Amz-Expires=300&X-Amz-Signature=59e79308e64f58be34cc3830f2dff31f0c8ad66072a3d563d135c0743b8d3918&X-Amz-SignedHeaders=host" width="250" /> | <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/183852987/528882316-6ebe49f6-936b-4571-92be-5d1c45cb0595.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251220%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251220T150352Z&X-Amz-Expires=300&X-Amz-Signature=5396f2c639a615ab87c168c5d0687170de20f2bef840cb5abf035ce3a19d7567&X-Amz-SignedHeaders=host" width="250" /> | <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/183852987/528882315-464f2c56-518e-46a1-affb-285d87fadb16.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20251220%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251220T150417Z&X-Amz-Expires=300&X-Amz-Signature=6cd44bc0e25b82ed340150e7f0d4339237cf80e53c8d0f4775f9ed58fe617b9b&X-Amz-SignedHeaders=host" width="250" /> |
+<img src="./GIF_1.gif" width="250" /> | <img src="./GIF_2.gif" width="250" /> | <img src="./GIF_3.gif" width="250" /> |
 </div>
 <hr>
 <br>
