@@ -40,4 +40,4 @@ is a high-performance mobile marketplace built with React Native (Expo). It serv
 <br>
 I chose TanStack Query because it handles the complexities of caching and 'stale-while-revalidate' logic automatically, which is essential for a marketplace app where prices and offers might update frequently. For the UI, RNEUI allowed me to build a professional-grade interface quickly while maintaining full control over the styling via CSS
 
- 
+ <b>Password:password</b>
